@@ -1,11 +1,11 @@
 <?php
 /**
- * @package     Joomla.Site
- * @subpackage  mod_articles_latest
- *
- * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
+* @package     Joomla.Site
+* @subpackage  mod_articles_latest
+*
+* @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+* @license     GNU General Public License version 2 or later; see LICENSE.txt
+*/
 
 defined('_JEXEC') or die;
 
@@ -13,24 +13,27 @@ JLoader::register('ContentHelperRoute', JPATH_SITE . '/components/com_content/he
 
 JModelLegacy::addIncludePath(JPATH_SITE . '/components/com_content/models', 'ContentModel');
 
+use Joomla\Registry\Registry;
+use Joomla\Utilities\IpHelper;
+
 use Joomla\Utilities\ArrayHelper;
 
 /**
- * Helper for mod_articles_latest
- *
- * @since  1.6
- */
+* Helper for mod_articles_latest
+*
+* @since  1.6
+*/
 abstract class ModArticlesLatestHelper
 {
 	/**
-	 * Retrieve a list of article
-	 *
-	 * @param   \Joomla\Registry\Registry  &$params  module parameters
-	 *
-	 * @return  mixed
-	 *
-	 * @since   1.6
-	 */
+	* Retrieve a list of article
+	*
+	* @param   \Joomla\Registry\Registry  &$params  module parameters
+	*
+	* @return  mixed
+	*
+	* @since   1.6
+	*/
 	public static function getList(&$params)
 	{
 		// Get the dbo
@@ -67,23 +70,23 @@ abstract class ModArticlesLatestHelper
 		switch ($params->get('user_id'))
 		{
 			case 'by_me' :
-				$model->setState('filter.author_id', (int) $userId);
-				break;
+			$model->setState('filter.author_id', (int) $userId);
+			break;
 			case 'not_me' :
-				$model->setState('filter.author_id', $userId);
-				$model->setState('filter.author_id.include', false);
-				break;
+			$model->setState('filter.author_id', $userId);
+			$model->setState('filter.author_id.include', false);
+			break;
 
 			case 'created_by' :
-				$model->setState('filter.author_id', $params->get('author', array()));
-				break;
+			$model->setState('filter.author_id', $params->get('author', array()));
+			break;
 
 			case '0' :
-				break;
+			break;
 
 			default:
-				$model->setState('filter.author_id', (int) $params->get('user_id'));
-				break;
+			$model->setState('filter.author_id', (int) $params->get('user_id'));
+			break;
 		}
 
 		// Filter by language
@@ -143,7 +146,18 @@ abstract class ModArticlesLatestHelper
 		return $items;
 	}
 
-	public function getAjax(){
+	public static function getArticleAjax(){
+		$articleId = JRequest::getInt('id');
+		$db = JFactory::getDBO();
+		$query = $db->getQuery(true);
+		$query->select('*');
+		$query->from($db->quoteName('#__content'));
+		$query->where($db->quoteName('id') . ' = '.$articleId);
+		$db->setQuery($query);
 
+
+		$fullArticle = $db->loadObject();
+
+		return $fullArticle;
 	}
 }

@@ -1,0 +1,191 @@
+@font-face {
+  font-family: 'Circe';
+  src: url('/static/fonts/Circe-ExtraLight.eot');
+  src: local('Circe ExtraLight'), local('Circe-ExtraLight'),
+  url('/static/fonts/Circe-ExtraLight.eot?#iefix') format('embedded-opentype'),
+  url('/static/fonts/Circe-ExtraLight.woff2') format('woff2'),
+  url('/static/fonts/Circe-ExtraLight.woff') format('woff'),
+  url('/static/fonts/Circe-ExtraLight.ttf') format('truetype'),
+  url('/static/fonts/Circe-ExtraLight.svg#Circe-ExtraLight') format('svg');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circe';
+  src: url('/static/fonts/Circe-Thin.eot');
+  src: local('Circe Thin'), local('Circe-Thin'),
+  url('/static/fonts/Circe-Thin.eot?#iefix') format('embedded-opentype'),
+  url('/static/fonts/Circe-Thin.woff2') format('woff2'),
+  url('/static/fonts/Circe-Thin.woff') format('woff'),
+  url('/static/fonts/Circe-Thin.ttf') format('truetype'),
+  url('/static/fonts/Circe-Thin.svg#Circe-Thin') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circe';
+  src: url('/static/fonts/Circe-Light.eot');
+  src: local('Circe Light'), local('Circe-Light'),
+  url('/static/fonts/Circe-Light.eot?#iefix') format('embedded-opentype'),
+  url('/static/fonts/Circe-Light.woff2') format('woff2'),
+  url('/static/fonts/Circe-Light.woff') format('woff'),
+  url('/static/fonts/Circe-Light.ttf') format('truetype'),
+  url('/static/fonts/Circe-Light.svg#Circe-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circe';
+  src: url('/static/fonts/Circe-Bold.eot');
+  src: local('Circe Bold'), local('Circe-Bold'),
+  url('/static/fonts/Circe-Bold.eot?#iefix') format('embedded-opentype'),
+  url('/static/fonts/Circe-Bold.woff2') format('woff2'),
+  url('/static/fonts/Circe-Bold.woff') format('woff'),
+  url('/static/fonts/Circe-Bold.ttf') format('truetype'),
+  url('/static/fonts/Circe-Bold.svg#Circe-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circe';
+  src: url('/static/fonts/Circe-Regular.eot');
+  src: local('Circe'), local('Circe-Regular'),
+  url('/static/fonts/Circe-Regular.eot?#iefix') format('embedded-opentype'),
+  url('/static/fonts/Circe-Regular.woff2') format('woff2'),
+  url('/static/fonts/Circe-Regular.woff') format('woff'),
+  url('/static/fonts/Circe-Regular.ttf') format('truetype'),
+  url('/static/fonts/Circe-Regular.svg#Circe-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circe';
+  src: url('/static/fonts/Circe-ExtraBold.eot');
+  src: local('Circe ExtraBold'), local('Circe-ExtraBold'),
+  url('/static/fonts/Circe-ExtraBold.eot?#iefix') format('embedded-opentype'),
+  url('/static/fonts/Circe-ExtraBold.woff2') format('woff2'),
+  url('/static/fonts/Circe-ExtraBold.woff') format('woff'),
+  url('/static/fonts/Circe-ExtraBold.ttf') format('truetype'),
+  url('/static/fonts/Circe-ExtraBold.svg#Circe-ExtraBold') format('svg');
+  font-weight: 800;
+  font-style: normal;
+}
+
+html, body{
+  font-family: 'Circe';
+  -webkit-font-smoothing: antialiased;
+  height:100%;
+
+}
+.wrapper{
+  max-width: 1440px;
+  width:100%;
+  padding:0 50px;
+  margin:0 auto;
+}
+header{
+  position: relative;
+  z-index: 99;
+  margin-bottom: 80px !important;
+}
+.logo{
+  display:block;
+  width: 115px;
+  height: 133px;
+  background: url('/static/img/logo.svg') top center;
+}
+main{
+  min-height: 100%;
+  overflow-x: hidden;
+}
+.main__page {
+  background: url(/static/img/bg.jpg) top center;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-size: cover;
+}
+.nav__bar {
+  background: url(/static/img/nav.svg) top left;
+  padding-left: 85px;
+  height: 86px;
+  display: flex;
+  align-items: center;
+  position:relative;
+  font-size: 16px;
+  line-height: 24px;
+}
+.nav__bar--blue{
+  background: url(/static/img/nav_blue.svg) top left;
+}
+.nav__bar::after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
+.nav__bar a{
+  color:#000;
+  text-decoration: none
+}
+.nav__bar--blue a{
+  color:#fff;
+}
+main.blured{
+  background: #E5E5E5
+}
+main.blured .nav__bar::after{
+  background: #434F7A
+}
+h1{
+  font-size: 50px;
+  line-height: 99.4%;
+  font-weight: bold;
+}
+.font-18{
+  font-size: 18px;
+  line-height: 27px;
+}
+.compass__img {
+  transform: rotate(36.15deg);
+  margin-top: -55px;
+}
+.compass__img img{
+  right: 80px;
+  top: 80px;
+}
+p {
+  margin-bottom: 30px;
+}
+ul {
+  font-size: 18px;
+  line-height: 27px;
+  list-style: none;
+  padding-left: 0;
+}
+li::before{
+  content: '';
+  width: 15px;
+  display: block;
+  height: 1px;
+  background: #434F7A;
+  position: absolute;
+  left: 0;
+  top: 14px;
+}
+ul li{
+  padding-bottom: 10px;
+  position: relative;
+  padding-left: 22px;
+}
